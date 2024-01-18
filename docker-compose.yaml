@@ -1,0 +1,17 @@
+services:
+    front:
+      build: ./front/.docker/
+      ports:
+        - 8080:80
+      command: npm run dev
+      volumes:
+       - ./front/:/data/front/
+      working_dir: /data/front/my-app
+    back:
+      build: ./back/.docker/
+      ports: 
+        - 8081:3000
+      command: npm run start
+      volumes:
+       - ./back/:/data/back/
+      working_dir: /data/back/my-back/
