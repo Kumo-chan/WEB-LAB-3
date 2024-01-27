@@ -29,6 +29,24 @@ This time, front and back are fully separated, and there is no database.
 The reason ? Well, dear comrades, Database are a pain in the neck, and I don't like
 JS as a backend solution. So I kept it simple. (PHP For the win !)
 
-Your intrested on how the heck this application work ? Good news for you !
+Your interested on how the heck this application work ? Good news for you !
 
-Just ``GO TO`` [the doc](documentations/documentation.md) !
+Just keep reading !
+# Documentation
+
+## API
+
+Back has 3 end point:
+
+Get on "/"
+=> Say hello word
+
+Get on "/monsters"
+=> Return the list of stored monster as json
+
+Post on "/monsters"
+=> Add given monster to the list
+
+## Architecture
+
+![architecture](documentations/architecture.png)

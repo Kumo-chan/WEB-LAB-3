@@ -13,4 +13,8 @@ export class AppController {
   getMonsters(res: Res): Res {
     return res.json(this.appService.getMonsters());
   }
+  @Post('monsters')
+  addMonster(req: Request): Res {
+    return res.json(this.appService.addMonster(req.body));
+  }
 }
