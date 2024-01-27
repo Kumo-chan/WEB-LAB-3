@@ -15,21 +15,20 @@ export default function Home() {
   );
 }
 
-async function MonsterList(refreshFlag) {
+async function MonsterList() {
   const response = await fetch(`http://10.5.0.6:3000/monsters/`, {
     method: 'GET',
-    accept: 'application/json',
   });
-  let monsters = await response.json();
+  const monsters: string[] = await response.json();
+
   return (
     <div>
       <h1>Monster List</h1>
       <ul>
-        {monsters.map((monster) => (
-          <li key={monster}>Monster : {monster}</li>
+        {monsters.map((monster: string, index: number) => (
+          <li key={index}>Monster : {monster}</li>
         ))}
       </ul>
-      <MonsterList refreshFlag={refreshFlag} />
     </div>
   );
 }
@@ -57,7 +56,6 @@ async function MonsterForm() {
       // Handle success, e.g., reset the form or show a success message
       setIsSuccess(true);
       setMonsterName('');
-      setRefreshFlag((prevRefreshFlag) => !prevRefreshFlag);
     } catch (error) {
       setIsSuccess(false);
     }

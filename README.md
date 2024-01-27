@@ -46,7 +46,15 @@ Get on "/monsters"
 
 Post on "/monsters"
 => Add given monster to the list
+(Search only for monsterName in the body)
 
 ## Architecture
 
 ![architecture](documentations/architecture.png)
+
+## Show case
+
+The application is design to look like a retro game starting screen.
+
+![UI](documentations/UI.png)
+
