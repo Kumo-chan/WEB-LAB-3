@@ -19,4 +19,9 @@ describe('AppController', () => {
       expect(appController.getHello()).toBe('Hello World!');
     });
   });
+  describe('monsters', () => {
+    it('should return "An json', () => {
+      expect(appController.getHello()).toBe(JSON);
+    });
+  });
 });

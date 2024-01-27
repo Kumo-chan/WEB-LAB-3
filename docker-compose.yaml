@@ -1,17 +1,30 @@
 services:
-    front:
-      build: ./front/my-app/
-      ports:
-        - 8080:80
-      volumes:
-        - ./front/:/data/front/
-      working_dir: /data/front/my-app
-      command: npm run dev
-    back:
-      build: ./back/my-back/
-      ports: 
-        - 8081:3000
-      volumes:
-       - ./back/:/data/back/
-      working_dir: /data/back/my-back/
-      command: npm run start
+  front:
+    build: ./front/my-app/
+    ports:
+      - 8080:80
+    volumes:
+      - ./front/:/data/front/
+    working_dir: /data/front/my-app
+    command: npm run dev
+    networks:
+      network:
+        ipv4_address: 10.5.0.5
+  back:
+    build: ./back/my-back/
+    ports:
+      - 8081:3000
+    volumes:
+      - ./back/:/data/back/
+    working_dir: /data/back/my-back/
+    command: npm run start
+    networks:
+      network:
+        ipv4_address: 10.5.0.6
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
